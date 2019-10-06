@@ -1,0 +1,18 @@
+name: tvc_crawl
+description: crawl
+version: 0.0.1
+author: tvc12
+repository: https://github.com/tvc12/tvc_crawl
+homepage: https://github.com/tvc12
+
+environment:
+  sdk: ">=2.2.0 <3.0.0"
+
+dependencies:
+  html: ^0.14.0+3
+  http: ^0.12.0+2
+
+
+dev_dependencies:
+  test: ^1.8.0
+  pedantic: ^1.8.0+1
