@@ -12,7 +12,17 @@ A Flutter example project with material component
 
 ### Support news
 
-    + [ ] [vnexpress](https://vnexpress.net)
+Vietnamese:
+
+- [ ] [vnexpress](https://vnexpress.net)
+- [ ] [baothaibinh](https://baothaibinh.com.vn)
+- [ ] [baodongnai](http://www.baodongnai.com.vn/)
+- [ ] [baoquocte](https://baoquocte.vn)
+
+English:
+
+- [ ] [financeasia](https://www.financeasia.com)
+- [ ] [cnn](https://cnn.com)
 
 ### Getting Started
 
