@@ -1,0 +1,22 @@
+name: Merge request
+on: [push, pull_request]
+# on: 
+#   push:
+#     branchs:
+#       - master
+#     tags:
+#       - v*
+jobs:
+  test:
+    name: Test Crawl
+    runs-on: ubuntu-latest
+    container:
+      image:  google/dart:latest
+    steps:
+      - name: Clone project
+      - uses: actions/checkout@v1
+      - name: Install dependencies
+        run: pub get
+      - name: Run tests
+        run: pub run test
+
