@@ -2,6 +2,7 @@
 
 A Flutter example project with material component
 
+![](https://github.com/tvc12/tvc_crawl/workflows/Merge%20request/badge.svg)
 ![GitHub](https://img.shields.io/github/license/tvc12/tvc_crawl.svg)
 [![HitCount](http://hits.dwyl.io/tvc12/tvc_crawl.svg)](http://hits.dwyl.io/tvc12/tvc_crawl)
 
