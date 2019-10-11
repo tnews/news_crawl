@@ -16,4 +16,7 @@ class News {
   int updatedTime;
   int publishedTime;
   int createdTime;
+
+  @override
+  String toString() => '$runtimeType title: $headline\nLength: ${contents.length}\n contents: $contents';
 }

@@ -8,7 +8,12 @@ class VNExpressParser extends NewsParser {
 
   @override
   News parse(Document document) {
-    return null;
+    News news;
+    for (CategoryParser categoryParser in parsers) {
+      news = categoryParser.parse(document);
+      if (news is News) break;
+    }
+    return news;
   }
 }
 
@@ -21,4 +26,29 @@ class BuilderVNExpressParser {
   }
 
   VNExpressParser build() => VNExpressParser(categoryParsers.toList());
+}
+
+class NewsCategoryVNExpressParser extends CategoryParser {
+  @override
+  News parse(Document document) {
+    try {
+      final String title = document.querySelector('.title_news_detail').text;
+      final List<String> body = document
+              .querySelectorAll('.Normal')
+              ?.map((Element element) => element.text)
+              ?.where((String text) => text?.isNotEmpty == true)
+              ?.toList() ??
+          const <String>[];
+      if (title is String && body is List<String>) {
+        return News()
+          ..headline = title
+          ..contents = body;
+      } else {
+        return null;
+      }
+    } catch (ex) {
+      debugPrint('$runtimeType.parse $ex');
+      return null;
+    }
+  }
 }
