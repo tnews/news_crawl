@@ -8,7 +8,7 @@ import 'parser/base_parser.dart';
 
 void main(List<String> args) async {
   http.Response response = await http.get(
-    'https://vnexpress.net/the-gioi/tham-phan-tu-ban-minh-sau-khi-tuyen-an-3992360.html',
+    'https://vnexpress.net/thoi-su/hang-nghin-ho-dan-hoang-mang-vi-nuoc-sach-co-mui-la-3995673.html',
   );
 
   TNewsParserEngine parserEngine =

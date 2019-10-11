@@ -1,8 +1,16 @@
+/**
+ * @author tvc12
+ * @email meomeocf98@gmail.com
+ * @create date 2019-10-11 23:53:24
+ * @modify date 2019-10-11 23:53:24
+ * @desc [parser news]
+ */
 library tvc_crawl.parser;
 
 import 'package:html/dom.dart';
 
 import '../domain/news.dart';
+import '../main.dart';
 
 part 'vnexpress_parser.dart';
 
@@ -21,21 +29,27 @@ abstract class ParserEngine {
 class TNewsParserEngine extends ParserEngine {
   static BuilderParserEngine builder() => BuilderParserEngine();
 
-  final Map<dynamic, NewsParser> engine;
+  final Map<Type, NewsParser> engine;
 
   TNewsParserEngine(this.engine);
 
   @override
   News parse(Document document) {
-    return null;
+    News news;
+    for (NewsParser newsParser in engine.values) {
+      news = newsParser.parse(document);
+      if (news is News) break;
+    }
+    return news;
   }
 }
 
 class BuilderParserEngine {
-  final Map<dynamic, NewsParser> engine = <dynamic, NewsParser>{};
+  final Map<Type, NewsParser> engine = <Type, NewsParser>{};
 
   BuilderParserEngine buildVNExpressParser() {
-    engine[VNExpressParser] = VNExpressParser.builder().build();
+    engine[VNExpressParser] =
+        VNExpressParser.builder().add(NewsCategoryVNExpressParser()).build();
     return this;
   }
 

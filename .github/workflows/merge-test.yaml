@@ -1,7 +1,7 @@
 name: Merge request
 on: [push, pull_request]
 # on:
-#   push:
+#   push:gi
 #     branchs:
 #       - master
 #     tags:
