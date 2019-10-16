@@ -1,3 +1,5 @@
+part of tvc_crawl.domain;
+
 class News {
   String id;
   String lang;
@@ -13,10 +15,9 @@ class News {
   String author;
   List<String> authors;
   String thumbnail;
-  int updatedTime;
   int publishedTime;
-  int createdTime;
 
   @override
-  String toString() => '$runtimeType title: $headline\nLength: ${contents.length}\n contents: $contents';
+  String toString() =>
+      '$runtimeType title: $headline\nLength: ${contents.length}\n contents: $contents';
 }

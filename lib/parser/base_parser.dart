@@ -5,14 +5,7 @@
  * @modify date 2019-10-11 23:53:24
  * @desc [parser news]
  */
-library tvc_crawl.parser;
-
-import 'package:html/dom.dart';
-
-import '../domain/news.dart';
-import '../main.dart';
-
-part 'vnexpress_parser.dart';
+part of tvc_crawl.parser;
 
 abstract class CategoryParser {
   News parse(Document document);

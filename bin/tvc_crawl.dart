@@ -1,10 +1,10 @@
 import 'dart:core';
+import 'package:tvc_crawl/parser/parser.dart';
 // import 'dart:html' as html;
 import 'package:html/dom.dart';
 import 'package:http/http.dart' as http;
 import 'package:html/parser.dart' show parse;
-
-import 'parser/base_parser.dart';
+import 'package:tvc_crawl/tvc_crawl.dart';
 
 void main(List<String> args) async {
   http.Response response = await http.get(
@@ -21,9 +21,4 @@ void main(List<String> args) async {
   } catch (ex) {
     debugPrint(ex);
   }
-}
-
-void debugPrint(dynamic ex) {
-  //ignore: avoid_print
-  print(ex);
 }
