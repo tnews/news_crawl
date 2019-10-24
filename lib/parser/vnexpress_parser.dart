@@ -47,6 +47,7 @@ class NewsCategoryVNExpressParser extends CategoryParser {
           ..description = description
           ..contents = body
           ..author = author
+          ..authors = <String>[author]
           ..htmlContent = document.outerHtml
           ..publishedTime = time;
       } else {
@@ -67,7 +68,8 @@ class NewsCategoryVNExpressParser extends CategoryParser {
     final List<String> body = document
             .querySelectorAll('.Normal')
             ?.where((Element element) => element.children.isEmpty)
-            ?.map((Element element) => element.text)
+            ?.map((Element element) =>
+                StringConverter.removeNewsLine(element.text))
             ?.where((String text) => text?.isNotEmpty == true)
             ?.toList() ??
         const <String>[];

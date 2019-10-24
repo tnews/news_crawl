@@ -16,7 +16,9 @@ void main(List<String> args) async {
   try {
     Document document = parse(response.body);
     // debugPrint(document.querySelectorAll('.title_news_detail').first.text);
-    debugPrint(parserEngine.parse(document));
+    final News news = parserEngine.parse(document);
+
+    debugPrint(news);
     // html.querySelectorAll('p');
   } catch (ex) {
     debugPrint(ex);

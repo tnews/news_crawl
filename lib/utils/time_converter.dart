@@ -3,6 +3,8 @@ library tvc_crawler.utils;
 import 'package:intl/intl.dart';
 import 'package:tvc_crawl/tvc_crawl.dart';
 
+part 'string_converter.dart';
+
 abstract class TimeConverter {
   static const String _queryRegex =
       r"\d{1,2}\/\d{1,2}\/\d{4},\s\d{0,2}:\d{0,2}";
