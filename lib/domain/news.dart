@@ -7,6 +7,7 @@
  */
 part of tvc_crawl.domain;
 
+@immutable
 class News {
   final String id;
   final String lang;
@@ -15,7 +16,7 @@ class News {
   final List<String> categories;
   final String headline;
   final String description;
-  final List<String> contents;
+  final List<BaseNewsContent> contents;
   final String htmlContent;
   final String url;
   final int status;
@@ -105,7 +106,7 @@ class News {
   }) : id = ThinId.randomIdWithDayAsPrefix();
 
   bool isNews() {
-    final List<dynamic> listVerify = <dynamic>[headline, description, contents, url, status, thumbnail];
+    final List<dynamic> listVerify = <dynamic>[headline, description, contents, url];
 
     for (dynamic item in listVerify) {
       if (item == null || (item is List && item.isEmpty)) return false;
