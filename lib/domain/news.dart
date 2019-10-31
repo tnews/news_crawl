@@ -1,3 +1,10 @@
+/**
+ * @author tvc12
+ * @email meomeocf98@gmail.com
+ * @create date 2019-10-31 22:24:13
+ * @modify date 2019-10-31 22:24:13
+ * @desc Model news
+ */
 part of tvc_crawl.domain;
 
 class News {
@@ -27,15 +34,19 @@ class News {
     addValueToMap('headline', headline, data);
     addValueToMap('description', description, data);
     addValueToMap('contents', contents, data);
-    addValueToMap('htmlContent', htmlContent, data);
     addValueToMap('url', url, data);
     addValueToMap('status', status, data);
     addValueToMap('author', author, data);
     addValueToMap('authors', authors, data);
     addValueToMap('thumbnail', thumbnail, data);
     addValueToMap('publishedTime', publishedTime, data);
+    addValueToMap('htmlContent', htmlContent, data);
 
     return data;
+  }
+
+  String toStringJson() {
+    return json.encode(toJson());
   }
 
   factory News.fromJson(Map<String, dynamic> json) {
@@ -93,9 +104,17 @@ class News {
     this.publishedTime,
   }) : id = ThinId.randomIdWithDayAsPrefix();
 
+  bool isNews() {
+    final List<dynamic> listVerify = <dynamic>[headline, description, contents, url, status, thumbnail];
+
+    for (dynamic item in listVerify) {
+      if (item == null || (item is List && item.isEmpty)) return false;
+    }
+    return true;
+  }
+
   @override
-  String toString() =>
-      '$runtimeType title: $headline\nLength: ${contents.length}\n contents: $contents';
+  String toString() => '$runtimeType title: $headline\nLength: ${contents.length}\n contents: $contents';
 }
 
 void addValueToMap(String key, dynamic value, final Map<String, dynamic> data) {

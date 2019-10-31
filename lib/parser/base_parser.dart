@@ -31,7 +31,7 @@ class TNewsParserEngine extends ParserEngine {
     News news;
     for (NewsParser newsParser in engine.values) {
       news = newsParser.parse(document);
-      if (news is News) break;
+      if (news?.isNews() == true) break;
     }
     return news;
   }
@@ -41,8 +41,7 @@ class BuilderParserEngine {
   final Map<Type, NewsParser> engine = <Type, NewsParser>{};
 
   BuilderParserEngine buildVNExpressParser() {
-    engine[VNExpressParser] =
-        VNExpressParser.builder().add(NewsCategoryVNExpressParser()).build();
+    engine[VNExpressParser] = VNExpressParser.builder().add(NewsCategoryVNExpressParser()).build();
     return this;
   }
 
