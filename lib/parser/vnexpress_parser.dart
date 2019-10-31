@@ -40,16 +40,17 @@ class NewsCategoryVNExpressParser extends CategoryParser {
       final String author = _getAuthor(document);
 
       if (title is String && body is List<String>) {
-        return News()
-          ..lang = 'vn'
-          ..source = 'vnexpress.net'
-          ..headline = title
-          ..description = description
-          ..contents = body
-          ..author = author
-          ..authors = <String>[author]
-          ..htmlContent = document.outerHtml
-          ..publishedTime = time;
+        return News.randomId(
+          lang: 'vn',
+          source: 'vnexpress.net',
+          headline: title,
+          description: description,
+          contents: body,
+          author: author,
+          authors: <String>[author],
+          htmlContent: document.outerHtml,
+          publishedTime: time,
+        );
       } else {
         return null;
       }

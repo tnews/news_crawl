@@ -1,9 +1,12 @@
 library tvc_crawler.utils;
 
+import 'dart:math';
+
 import 'package:intl/intl.dart';
 import 'package:tvc_crawl/tvc_crawl.dart';
 
 part 'string_converter.dart';
+part 'thinid.dart';
 
 abstract class TimeConverter {
   static const String _queryRegex =

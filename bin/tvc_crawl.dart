@@ -7,18 +7,18 @@ import 'package:html/parser.dart' show parse;
 import 'package:tvc_crawl/tvc_crawl.dart';
 
 void main(List<String> args) async {
-  http.Response response = await http.get(
-    'https://vnexpress.net/thoi-su/hang-nghin-ho-dan-hoang-mang-vi-nuoc-sach-co-mui-la-3995673.html',
-  );
+  // http.Response response = await http.get(
+  //   'https://vnexpress.net/thoi-su/hang-nghin-ho-dan-hoang-mang-vi-nuoc-sach-co-mui-la-3995673.html',
+  // );
 
-  TNewsParserEngine parserEngine =
-      TNewsParserEngine.builder().buildVNExpressParser().build();
+  // TNewsParserEngine parserEngine =
+  //     TNewsParserEngine.builder().buildVNExpressParser().build();
   try {
-    Document document = parse(response.body);
+    // Document document = parse(response.body);
     // debugPrint(document.querySelectorAll('.title_news_detail').first.text);
-    final News news = parserEngine.parse(document);
+    // final News news = parserEngine.parse(document);
 
-    debugPrint(news);
+    debugPrint(ThinId.randomId());
     // html.querySelectorAll('p');
   } catch (ex) {
     debugPrint(ex);
