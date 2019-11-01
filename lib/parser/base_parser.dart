@@ -11,11 +11,13 @@ class HtmlData {
   final String url;
   final Document document;
   final String thumbnail;
+  final Type newsParser;
 
   HtmlData({
     @required this.url,
     @required this.document,
     this.thumbnail,
+    this.newsParser,
   }) : assert(url != null, 'url musn\'t null');
 
   @override
@@ -45,9 +47,13 @@ class TNewsParserEngine extends ParserEngine {
   News parse(HtmlData htmlData) {
     News news;
     if (htmlData.document != null) {
-      for (NewsParser newsParser in engine.values) {
-        news = newsParser.parse(htmlData);
-        if (news?.isNews() == true) break;
+      if (htmlData.newsParser != null) {
+        news = engine[htmlData.newsParser]?.parse(htmlData);
+      } else {
+        for (NewsParser newsParser in engine.values) {
+          news = newsParser.parse(htmlData);
+          if (news?.isNews() == true) break;
+        }
       }
     }
 
