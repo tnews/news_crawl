@@ -7,33 +7,16 @@
  */
 part of tvc_crawl.parser;
 
-class HtmlData {
-  final String url;
-  final Document document;
-  final String thumbnail;
-  final Type newsParser;
-
-  HtmlData({
-    @required this.url,
-    @required this.document,
-    this.thumbnail,
-    this.newsParser,
-  }) : assert(url != null, 'url musn\'t null');
-
-  @override
-  String toString() => '$runtimeType url: $url';
-}
-
 abstract class CategoryParser {
-  News parse(HtmlData htmlData);
+  News parse(NewsParserData htmlData);
 }
 
 abstract class NewsParser {
-  News parse(HtmlData htmlData);
+  News parse(NewsParserData htmlData);
 }
 
 abstract class ParserEngine {
-  News parse(HtmlData htmlData);
+  News parse(NewsParserData htmlData);
 }
 
 class TNewsParserEngine extends ParserEngine {
@@ -44,7 +27,7 @@ class TNewsParserEngine extends ParserEngine {
   TNewsParserEngine(this.engine);
 
   @override
-  News parse(HtmlData htmlData) {
+  News parse(NewsParserData htmlData) {
     News news;
     if (htmlData.document != null) {
       if (htmlData.newsParser != null) {

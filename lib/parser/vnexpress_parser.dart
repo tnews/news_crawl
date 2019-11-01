@@ -7,7 +7,7 @@ class VNExpressParser extends NewsParser {
   static BuilderVNExpressParser builder() => BuilderVNExpressParser();
 
   @override
-  News parse(HtmlData htmlData) {
+  News parse(NewsParserData htmlData) {
     News news;
     for (CategoryParser categoryParser in parsers) {
       news = categoryParser.parse(htmlData);
@@ -30,7 +30,7 @@ class BuilderVNExpressParser {
 
 class NewsCategoryVNExpressParser extends CategoryParser {
   @override
-  News parse(HtmlData htmlData) {
+  News parse(NewsParserData htmlData) {
     final Document document = htmlData.document;
     try {
       final int time = _convertTimeToInt(_getTime(document));

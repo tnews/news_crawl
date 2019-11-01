@@ -13,7 +13,7 @@ void main(List<String> args) async {
   try {
     Document document = parse(response.body);
     debugPrint(document.querySelectorAll('.title_news_detail').first.text);
-    final HtmlData data = HtmlData(url: url, document: document);
+    final NewsParserData data = NewsParserData(url: url, document: document);
     final News news = parserEngine.parse(data);
     debugPrint(news.toStringJson());
     // File file = File(news.id);
