@@ -2,14 +2,14 @@ name: Merge request
 on: [push, pull_request]
 jobs:
   build:
-    name: Test Crawl
     runs-on: ubuntu-latest
+
     container:
-      image: google/dart:latest
+      image:  google/dart:latest
+
     steps:
-      - name: Clone project
-      - uses: actions/checkout@v1
+    - uses: actions/checkout@v1
       - name: Install dependencies
-        run: pub get
+      run: pub get
       - name: Run tests
-        run: pub run test
+      run: pub run test
