@@ -1,13 +1,7 @@
 name: Merge request
 on: [push, pull_request]
-# on:
-#   push:gi
-#     branchs:
-#       - master
-#     tags:
-#       - v*
 jobs:
-  test:
+  build:
     name: Test Crawl
     runs-on: ubuntu-latest
     container:
