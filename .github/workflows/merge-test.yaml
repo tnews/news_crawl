@@ -1,15 +1,13 @@
-name: Merge request
+name: "Merge request"
 on: [push, pull_request]
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
-
     container:
       image:  google/dart:latest
-
     steps:
     - uses: actions/checkout@v1
-      - name: Install dependencies
+      - name: "Install dependencies"
       run: pub get
       - name: Run tests
       run: pub run test
